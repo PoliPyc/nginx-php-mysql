@@ -5,6 +5,6 @@
     <title>title</title>
   </head>
   <body>
-    NGINX - PHP - MYSQL
+    NGINX - <?= php ?> - MYSQL
   </body>
 </html>
