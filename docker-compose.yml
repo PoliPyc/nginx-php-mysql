@@ -1,0 +1,8 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:1.15-alpine
+    php:
+        image: php:7.3-fpm-alpine.39
+    mysql:
+        image: mariadb:10.4
