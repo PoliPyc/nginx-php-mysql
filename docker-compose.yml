@@ -9,5 +9,7 @@ services:
             - ${NGINX_PORT}:80
     php:
         image: php:7.3-fpm-alpine3.9
+        volumes:
+            - ./src:/usr/share/nginx/html 
     mysql:
         image: mariadb:10.4
