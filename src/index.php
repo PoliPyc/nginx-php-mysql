@@ -1,3 +1,12 @@
+<?php
+  $msql = '';
+  try{
+    $connection = new PDO('mysql:host=mysql;dbname=dbsample', 'mysql_user', 'lessSecurePassword');
+    $mysql = 'MYSQL';
+  } catch (Exception $e) {
+    $mysql = ':( '.$e->getMessage();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,6 +14,6 @@
     <title>title</title>
   </head>
   <body>
-    NGINX - <?= 'PHP' ?> - MYSQL
+    NGINX - <?= 'PHP' ?> - <?= $mysql ?>
   </body>
 </html>

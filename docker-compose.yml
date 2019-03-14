@@ -4,12 +4,20 @@ services:
         image: nginx:1.15-alpine
         volumes:
             - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-            - ./src:/usr/share/nginx/html
+            - ${SRC_PATH}:/usr/share/nginx/html
         ports:
             - ${NGINX_PORT}:80
     php:
-        image: php:7.3-fpm-alpine3.9
+        build:
+            context: ./docker/php
         volumes:
-            - ./src:/usr/share/nginx/html 
+            - ${SRC_PATH}:/usr/share/nginx/html 
     mysql:
         image: mariadb:10.4
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        volumes:
+            - ${MYSQL_PATH}:/var/lib/mysql
