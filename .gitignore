@@ -1,2 +1,5 @@
 .env
 docker/data
+docker/logs
+src/*
+!src/index.php
